@@ -35,13 +35,17 @@ const createNode = pokemon =>{
     elements.classList.add("poke-types");
     
     const pokeType = document.createElement('span');
-    pokeType.textContent = pokemon.types[0].type.name;
+    let color = pokemon.types[0].type.name;
+    pokeType.textContent = nameType(color);
+    pokeType.style.background = colorType(color);
 
     elements.appendChild(pokeType);
     
     if(pokemon.types.length == 2 ){
         const pokeType = document.createElement('span');
-        pokeType.textContent = pokemon.types[1].type.name;
+        let color = pokemon.types[1].type.name;
+        pokeType.textContent = nameType(color);
+        pokeType.style.background = colorType(color);
         card.appendChild(pokeType);
         elements.appendChild(pokeType);
     }
@@ -55,4 +59,4 @@ const createNode = pokemon =>{
 }
 
 
-fetchPokemons(1, 9);
+fetchPokemons(1, 150);
