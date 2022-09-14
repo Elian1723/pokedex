@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;800&display=swap');
+@import url('./animation.css');
+@import url('./colorTypes.css');
+
+:root{
+    --width-global: 80%;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+body{
+    font-size: 20px;
+    font-family: 'Rubik', sans-serif;
+    background-color: #A5F1E9;
+}
+h1{
+    margin: 30px 0;
+    text-align: center;
+}
+main, nav{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+main .conteiner{
+    width: var(--width-global);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 50px;
+}
+
+/* cards */
+main .poke-conteiner .poke-front{
+    background-color: rgb(240, 240, 240);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border-radius: 5%;
+    box-shadow: 3px 5px 10px #557e7a;
+}
+main .poke-conteiner .poke-back{
+    background: rgb(240, 240, 240);
+    border-radius: 5%;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+}
+main .poke-conteiner .stats{
+    width: 100%;
+    height: 45%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+main .poke-conteiner .stats .hp{
+    background: #abe08a;
+    color: #24490b;
+}
+main .poke-conteiner .stats .attack{
+    background: #fd7f7f;
+    color: #5e0208;
+}
+main .poke-conteiner .stats .defense{
+    background: #9cb5f5;
+    color: #23375f;
+}
+main .poke-conteiner .stats p{
+    text-align: center;
+    width: 50%;
+    border-radius: 2rem;
+}
+main .poke-image{
+    z-index: 1;
+}
+main .poke-numb{
+    z-index: 0;
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    font-size: 3.5em;
+    font-style: italic;
+    opacity: 0.2;
+}
+main .poke-conteiner .poke-types{
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+}
+main .poke-conteiner .poke-types span{
+    font-size: 0.9em;
+    text-align: center;
+    color: #fff;
+    width: 6rem;
+    margin-left: 5px;
+    border-radius: 7%;
+    box-shadow: 1px 3px 5px #a5a5a5;
+}
+
+/* botones de navegacion */
+nav{
+    margin: 1.5rem 0 2.5rem 0;
+}
+nav ul{
+    width: var(--width-global);
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+nav ul a{
+    text-decoration: none;
+    color: #0066cc;
+    transition: all .2s ease;
+}
+nav ul li{
+    padding: 0.4rem;
+    border-radius: 0.5rem;
+    width: 7rem;
+    text-align: center;
+    box-shadow: 0px 2px 6px #557e7a;
+    background: #fff;
+    transition: all .2s ease;
+}
+nav ul li:hover{
+    background: #0066cc;
+}
+nav ul li:hover > a{
+    color: #fff;
+}
