@@ -1,4 +1,24 @@
 const conteiner = document.querySelector("#poke-conteiner-all");
+const previous = document.querySelector("#btn-previous");
+const next = document.querySelector("#btn-next");
+
+let init = 1;
+let limit = 9;
+
+previous.addEventListener("click", () =>{
+    if(init!=1){
+        init -= 9;
+        removeChildNodes(conteiner);
+        fetchPokemons(init, limit + init -1);
+    }
+});
+
+next.addEventListener("click", () =>{
+    init += 9;
+    removeChildNodes(conteiner);
+    fetchPokemons(init, limit + init -1);
+});
+
 
 const fetchPokemon = id =>{
     fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
@@ -58,5 +78,10 @@ const createNode = pokemon =>{
     conteiner.appendChild(card);
 }
 
+const removeChildNodes = (parent) =>{
+    while(parent.firstChild){
+        parent.removeChild(parent.firstChild);
+    }
+}
 
-fetchPokemons(1, 150);
+fetchPokemons(init, limit);
