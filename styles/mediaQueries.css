@@ -1,0 +1,38 @@
+@media screen and (max-width: 1249px) {
+    main .poke-numb{
+        left: 25%;
+    }
+}
+@media screen and (max-width: 980px) {
+    main .poke-numb{
+        left: 15%;
+    }
+}
+@media screen and (max-width: 813px) {
+    main .conteiner{
+        grid-gap: 20px;
+    }
+}
+@media screen and (max-width: 775px) {
+    :root{
+        --width-global: 93%;
+    }
+}
+@media screen and (max-width: 666px) {
+    :root{
+        --width-global: 70%;
+    }
+    main .poke-numb{
+        left: 25%;
+    }
+}
+@media screen and (max-width: 520px) {
+    main .poke-numb{
+        left: 15%;
+    }
+}
+@media screen and (max-width: 430px) {
+    :root{
+        --width-global: 85%;
+    }
+}
