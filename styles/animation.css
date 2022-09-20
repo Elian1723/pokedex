@@ -8,8 +8,9 @@ main .poke-conteiner .poke-inner{
     position: relative;
     transition: transform .6s;
     transform-style: preserve-3d;
+    cursor: pointer;
 }
-main .poke-conteiner:hover .poke-inner{
+main .poke-conteiner .poke-flip{
     transform: rotateY(180deg);
 }
 main .poke-conteiner .poke-front,
@@ -21,4 +22,5 @@ main .poke-conteiner .poke-back{
 }
 main .poke-conteiner .poke-back{
     transform: rotateY(180deg);
+    box-shadow: 3px 5px 10px #557e7a;
 }

@@ -1,9 +1,11 @@
 import { nameType } from "./types.js";
 import { fetchPokemons } from "./app.js"
 
-const conteiner = document.querySelector("#poke-conteiner-all");
-
 let init = 1, limit = 9;
+
+export const conteiner = document.querySelector("#poke-conteiner-all");
+const nav = document.querySelector("#nav");
+const spinner = document.querySelector("#spinner");
 
 export class UI{
     addPoke(pokemon){
@@ -55,6 +57,8 @@ export class UI{
 
         pokeConteiner.appendChild(pokeInner);
         conteiner.appendChild(pokeConteiner);
+
+        this.flip(pokeConteiner);
     }
     previous(){
         if(init!=1){
@@ -68,9 +72,30 @@ export class UI{
         this.removeChildNodes(conteiner);
         fetchPokemons(init, limit + init -1);
     }
+    home(){
+        init = 1;
+        limit = 9;
+        this.removeChildNodes(conteiner);
+        fetchPokemons(init, limit);
+    }
     removeChildNodes(parent){
         while(parent.firstChild){
             parent.removeChild(parent.firstChild);
         }
+    }
+    flip(block){
+        block.addEventListener("click", () =>{
+            block.firstElementChild.classList.toggle("poke-flip");
+        })
+    }
+    loading(){
+        conteiner.style.display = "none";
+        nav.style.display = "none";
+        spinner.style.display = "block";
+    }
+    loaded(){
+        conteiner.style.display = "grid";
+        nav.style.display = "flex";
+        spinner.style.display = "none";
     }
 }

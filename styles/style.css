@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;800&display=swap');
-@import url('./animation.css');
 @import url('./colorTypes.css');
 
 :root{
@@ -22,11 +21,36 @@ h1{
     margin: 30px 0;
     text-align: center;
 }
+
 main, nav{
     width: 100%;
     display: flex;
     justify-content: center;
 }
+
+/* spinner */
+@keyframes spinner{
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.spinner{
+    width: 5rem;
+    height: 5rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    animation: spinner 2s linear infinite;
+    z-index: 100;
+}
+
+/* cards */
 main .conteiner{
     width: var(--width-global);
     display: grid;
@@ -35,7 +59,6 @@ main .conteiner{
     justify-items: center;
 }
 
-/* cards */
 main .poke-conteiner .poke-front{
     background-color: rgb(240, 240, 240);
     display: flex;
@@ -117,10 +140,10 @@ nav ul{
     flex-direction: row;
     gap: 20px;
 }
-nav ul a{
+nav ul .link{
     text-decoration: none;
-    color: #0066cc;
     transition: all .2s ease;
+    color: #0066cc;
 }
 nav ul li{
     padding: 0.4rem;
@@ -130,10 +153,16 @@ nav ul li{
     box-shadow: 0px 2px 6px #557e7a;
     background: #fff;
     transition: all .2s ease;
+    cursor: pointer;
 }
 nav ul li:hover{
     background: #0066cc;
 }
-nav ul li:hover > a{
+nav ul li:hover > .link{
     color: #fff;
+}
+nav ul .home{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
 }

@@ -2,19 +2,23 @@ import { UI } from "./ui.js";
 
 let init = 1, limit = 9;
 
+
+const ui = new UI();
 const previous = document.querySelector("#btn-previous");
 const next = document.querySelector("#btn-next");
-
+const home = document.querySelector("#home");
 
 previous.addEventListener("click", () =>{
-    const newUI = new UI();
-    newUI.previous();
+    ui.previous();
 });
 
 next.addEventListener("click", () =>{
-    const newUI = new UI();
-    newUI.next();
+    ui.next();
 });
+
+home.addEventListener("click", () =>{
+    ui.home();
+})
 
 class Pokemon{
     constructor(name, id, types, image, stats){
@@ -32,19 +36,20 @@ const fetchPokemon = async id =>{
         const data = await res.json();
 
         const newPokemon = new Pokemon(data.name, data.id, data.types, data.sprites, data.stats);
-        const newUI = new UI();
-        newUI.addPoke(newPokemon);
+        ui.addPoke(newPokemon);
     } catch (error){
         console.log(error);
     }
 }
 
-const fetchPokemons = async (init, limit) =>{
+export const fetchPokemons = async (init, limit) =>{
+    ui.loading();
+
     for(let i=init; i<=limit; i++){
         await fetchPokemon(i);
     }
+
+    ui.loaded();
 }
 
 fetchPokemons(init, limit);
-
-export {fetchPokemons};
